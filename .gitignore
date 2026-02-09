@@ -1,0 +1,19 @@
+# OS generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Sensitive data (never commit)
+*.pem
+*.key
+secrets/
+.env
+.local.*
+
+# Machine-specific overrides
+*.local
