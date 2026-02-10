@@ -37,6 +37,24 @@ if (Test-Path $PowerShellProfile) {
     Link-File $PowerShellProfile $PROFILE "PowerShell profile"
 }
 
+# Git Config (shared defaults)
+$GitConfig = "$DotfilesDir/.gitconfig"
+$GitConfigTarget = "$env:USERPROFILE\.gitconfig"
+if (Test-Path $GitConfig) {
+    Link-File $GitConfig $GitConfigTarget "Git config (shared defaults)"
+}
+
+# Git Local Config (personal settings - create from example if missing)
+$GitConfigLocal = "$env:USERPROFILE\.gitconfig.local"
+$GitConfigLocalExample = "$DotfilesDir/.gitconfig.local.example"
+if (-not (Test-Path $GitConfigLocal) -and (Test-Path $GitConfigLocalExample)) {
+    Write-Host ""
+    Write-Host "  ⚠️  Creating ~/.gitconfig.local from example..." -ForegroundColor Yellow
+    Copy-Item $GitConfigLocalExample $GitConfigLocal
+    Write-Host "  ✅ ~/.gitconfig.local created - edit with your personal details" -ForegroundColor Green
+    Write-Host "     Current settings: dev23xyz-oss / dev.23.xyz@gmail.com" -ForegroundColor Gray
+}
+
 # VSCode Settings
 $VSCodeDir = "$DotfilesDir/.config/code/User"
 $VSCodeTarget = "$env:APPDATA/Code/User"

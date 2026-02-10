@@ -1,0 +1,63 @@
+# jrnew's Git Configuration
+# This file contains secure defaults that work across machines
+# Personal settings (user.name, user.email) are in .gitconfig.local
+
+[include]
+	path = ~/.gitconfig.local
+
+# Secure credential storage (Windows)
+[credential]
+	helper = manager-core
+
+# Git LFS for large files
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+# Better defaults
+[init]
+	defaultBranch = main
+
+[core]
+	quotePath = false
+	editor = vim
+
+# Rebase by default (cleaner history)
+[pull]
+	rebase = true
+
+# Faster operations
+[fetch]
+	parallel = 0
+
+# Colorful output
+[color]
+	ui = true
+
+# Useful aliases
+[alias]
+	# Status & Log
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	lg = log --graph --oneline --all --decorate
+
+	# Add & Remove
+	add-all = add -A
+	unstage = reset HEAD --
+
+	# Diff & Show
+	df = diff
+	ds = diff --staged
+	show-last = show HEAD
+
+	# Commit shortcuts
+	amend = commit --amend --no-edit
+	amend-msg = commit --amend
+
+	# Stash
+	save = stash save
+	pop = stash pop

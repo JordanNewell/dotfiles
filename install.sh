@@ -57,6 +57,24 @@ fi
 echo ""
 
 # ============================================================================
+# INSTALL GIT HOOKS
+# ============================================================================
+
+echo "Installing git hooks..."
+
+HOOKS_DIR="$DOTFILES_DIR/.git/hooks"
+
+# Copy pre-commit hook if it exists
+if [ -f "$HOOKS_DIR/pre-commit" ]; then
+    chmod +x "$HOOKS_DIR/pre-commit"
+    echo "  ✓ Pre-commit hook installed"
+else
+    echo "  ℹ️  No pre-commit hook found (skipped)"
+fi
+
+echo ""
+
+# ============================================================================
 # UPDATE .bashrc IF NEEDED
 # ============================================================================
 
@@ -73,6 +91,37 @@ else
     echo "  ✓ .bashrc already configured"
 fi
 
+echo ""
+
+# ============================================================================
+# SETUP GIT CONFIG
+# ============================================================================
+
+echo "Setting up Git configuration..."
+
+# Symlink shared .gitconfig
+GITCONFIG="$DOTFILES_DIR/.gitconfig"
+GITCONFIG_TARGET="$HOME/.gitconfig"
+
+if [ -f "$GITCONFIG" ]; then
+    ln -sf "$GITCONFIG" "$GITCONFIG_TARGET"
+    echo "  ✓ .gitconfig symlinked"
+fi
+
+# Create .gitconfig.local from example if missing
+GITCONFIG_LOCAL="$HOME/.gitconfig.local"
+GITCONFIG_LOCAL_EXAMPLE="$DOTFILES_DIR/.gitconfig.local.example"
+
+if [ ! -f "$GITCONFIG_LOCAL" ] && [ -f "$GITCONFIG_LOCAL_EXAMPLE" ]; then
+    echo ""
+    echo "  ⚠️  Creating ~/.gitconfig.local from example..."
+    cp "$GITCONFIG_LOCAL_EXAMPLE" "$GITCONFIG_LOCAL"
+    echo "  ✓ ~/.gitconfig.local created - edit with your personal details"
+else
+    echo "  ✓ .gitconfig.local already exists"
+fi
+
+echo ""
 echo ""
 
 # ============================================================================

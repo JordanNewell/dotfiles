@@ -1,0 +1,24 @@
+# Personal Git Configuration (DO NOT commit to dotfiles)
+# Copy this file to .gitconfig.local and fill in your details
+# Reference: https://git-scm.com/docs/git-config
+
+[user]
+	# Your GitHub username
+	name = dev23xyz-oss
+
+	# Your GitHub email
+	email = dev.23.xyz@gmail.com
+
+# GitHub specific settings
+[github]
+	user = dev23xyz-oss
+
+# GPG signing (optional - uncomment if you use GPG)
+# [commit]
+# 	gpgsign = true
+# [gpg]
+# 	program = gpg
+
+# SSH key for GitHub (optional)
+# [core]
+# 	sshCommand = ssh -i ~/.ssh/github_id_rsa
