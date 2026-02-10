@@ -1,0 +1,57 @@
+# Universal editor configuration
+# Works with VSCode, Cursor, JetBrains, Sublime, etc.
+# https://editorconfig.org
+
+root = true
+
+# Default settings for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Markdown - preserve trailing whitespace for line breaks
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# JavaScript/TypeScript/JSON - 2 space indent
+[*.{js,jsx,ts,tsx,json,cjs,mjs}]
+indent_size = 2
+max_line_length = 100
+
+# Python/Go - 4 space indent
+[*.{py,go}]
+indent_size = 4
+
+# YAML - 2 space indent
+[*.{yml,yaml}]
+indent_size = 2
+
+# Makefiles - tabs required
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# Shell scripts
+[*.{sh,bash}]
+indent_size = 2
+
+# CSS/SCSS
+[*.{css,scss,less}]
+indent_size = 2
+
+# HTML
+[*.{html,htm}]
+indent_size = 2
+
+# SQL
+[*.{sql}]
+indent_size = 2
+
+# Config files
+[*.{env,ini,conf}]
+indent_size = 2
