@@ -18,12 +18,13 @@ Your dotfiles are the configuration files that make your terminal, editors, and 
 dotfiles/
 ├── powershell/
 │   └── Microsoft.PowerShell_profile.ps1    # PowerShell aliases, functions, shortcuts
-├── .config/                                # Editor configs (future)
-│   ├── code/                               #   - VSCode settings
-│   ├── cursor/                             #   - Cursor settings
-│   └── windsurf/                           #   - Windsurf settings
+├── scripts/
+│   ├── load-env.sh                         # Environment loader with defaults
+│   └── cleanup/
+│       └── claude-backup-cleanup.sh        # Auto-cleanup for Claude Code backups
+├── .env.example                            # Machine-specific config template
+├── .editorconfig                           # Universal editor settings
 ├── install.ps1                             # One-command installer
-├── setup.ps1                               # Symlink creator (needs admin)
 ├── .gitignore                              # What NOT to track
 └── README.md                               # This file
 ```
@@ -36,14 +37,27 @@ dotfiles/
 
 ```powershell
 # 1. Clone the repo
-git clone https://github.com/0xshash/dotfiles.git E:/dev/projects/dotfiles
+git clone https://github.com/0xshash/dotfiles.git ~/dotfiles
 
-# 2. Install (copies profile to correct location)
-pwsh -ExecutionPolicy Bypass -File E:/dev/projects/dotfiles/install.ps1
+# 2. Create machine-specific environment
+cp ~/dotfiles/.env.example ~/dotfiles/.env
+# Edit .env with your paths (PROJECTS_ROOT, TEMPLATES_DIR, etc.)
 
-# 3. Restart PowerShell
+# 3. Install (copies profile to correct location)
+cd ~/dotfiles
+pwsh -ExecutionPolicy Bypass -File install.ps1
+
+# 4. Restart PowerShell
 exit
 # Then open new terminal
+```
+
+### Setup Project Templates (Optional):
+
+```bash
+# Clone templates to your preferred location
+git clone https://github.com/0xshash/templates.git ~/templates
+# Or set TEMPLATES_DIR in .env to your templates location
 ```
 
 ### On THIS Machine (Already Set Up):
@@ -92,6 +106,71 @@ After installing, restart PowerShell and you'll have:
 |---------|--------|
 | `vs` or `code-dev` | Launch VSCode with custom extensions |
 | `cursor-dev` | Launch Cursor with custom extensions |
+
+### Maintenance Commands
+
+| Command | Action |
+|---------|--------|
+| `clean-temp` | Remove temp files (*.tmp, *.log) from home |
+| `clean-cache` | Show cache directories to clean |
+| `clean-claude-backups` | Move Claude Code backup files to backup dir |
+
+**Auto-cleanup:** Claude backups are automatically cleaned when you open a new terminal (runs silently in background).
+
+---
+
+## 📦 Project Templates
+
+Use the `newproject` command to scaffold new projects from templates:
+
+```bash
+newproject my-app next-fullstack    # Next.js full-stack app
+newproject my-api node-api          # Node.js API service
+newproject my-service python-service # Python service
+```
+
+### Available Templates
+
+| Template | Description |
+|----------|-------------|
+| `next-fullstack` | Next.js 15 + Prisma + Radix UI + TypeScript |
+| `node-api` | Hono + TypeScript API service |
+| `python-service` | Poetry + Python service |
+
+### Creating Projects
+
+Projects are created at `$PROJECTS_ROOT` (configured in `.env`):
+- Defaults to `~/projects`
+- Override in `~/.dotfiles/.env`
+
+---
+
+## 🔧 Portable Configuration
+
+### Environment Variables
+
+The `.env` file in your dotfiles directory controls machine-specific paths:
+
+```bash
+PROJECTS_ROOT="~/projects"      # Where projects are created
+TEMPLATES_DIR="~/templates"     # Where templates live
+VAULTS_DIR="~/vaults"           # Your Obsidian vaults
+TOOLS_DIR="~/tools"             # Development tools
+BACKUP_DIR="~/Backups"          # Where backups are stored (Claude, etc.)
+```
+
+These variables are used by:
+- PowerShell navigation functions (`projects`, `vault`, `tools`)
+- `newproject` script
+- All portable scripts
+
+### Benefits of Portable Configuration
+
+| Before | After |
+|--------|-------|
+| Hardcoded paths everywhere | Works on any machine |
+| Breaks when reorganizing | Change one `.env` file |
+| Different scripts per machine | Same scripts everywhere |
 
 ---
 
@@ -144,6 +223,36 @@ Instead of editing that file directly, we:
 │                           profile.ps1                       │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+### Portable Environment with .env
+
+Instead of hardcoding paths, your setup uses environment variables:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  You configure:                                             │
+│  ~/dotfiles/.env                                            │
+│                                                             │
+│  PROJECTS_ROOT="~/projects"                                 │
+│  VAULTS_DIR="~/vaults"                                      │
+│  TOOLS_DIR="~/tools"                                        │
+└─────────────────────────┬───────────────────────────────────┘
+                          │
+                          │  Load on startup
+                          ▼
+┌─────────────────────────────────────────────────────────────┐
+│  PowerShell profile uses:                                   │
+│  $env:PROJECTS_ROOT → navigate anywhere                    │
+│  $env:VAULTS_DIR   → vaults on any machine                  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Universal Editor Config
+
+The `.editorconfig` file ensures consistent coding style across all editors:
+- VSCode, Cursor, JetBrains, Sublime, etc.
+- Automatic indentation, line endings, charset
+- No need for per-editor configuration
 
 ---
 
