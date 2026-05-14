@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: LicenseRef-AnythingXYZ-Proprietary
+# Copyright (c) {{YEAR}} {{COMPANY}}
+# Author: {{AUTHOR}}
+# Company: {{COMPANY}}
+# Product: {{PRODUCT}}

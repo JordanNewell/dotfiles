@@ -1,0 +1,38 @@
+{
+  "defaults": {
+    "company": "Anything XYZ",
+    "author": null,
+    "email": null,
+    "license": "LicenseRef-AnythingXYZ-Proprietary"
+  },
+  "projects": {
+    "molana": {
+      "product": "Curtis Trade AI Solana Edition",
+      "override": "Molana Trading Ecosystem"
+    },
+    "m0l-handz": {
+      "product": "Social Trading Platform",
+      "override": "M0L-Handz"
+    },
+    "claude-agent-layer": {
+      "product": "Agent Routing & Semantic Memory",
+      "override": "Claude Agent Layer"
+    },
+    "obsidian-glm-plugin": {
+      "product": "Obsidian GLM Integration",
+      "override": "Obsidian GLM Plugin"
+    },
+    "venture-studio": {
+      "product": "Venture Studio Platform",
+      "override": "Venture Studio"
+    },
+    "curtis": {
+      "product": "Trading Infrastructure",
+      "override": "Curtis Trading"
+    },
+    "curtis-trade": {
+      "product": "Trading Application",
+      "override": "Curtis Trade"
+    }
+  }
+}

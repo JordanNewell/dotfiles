@@ -1,0 +1,52 @@
+# Company Headers Check - GitHub Actions Workflow
+# Add this to .github/workflows/company-headers.yml
+#
+# SPDX-License-Identifier: LicenseRef-AnythingXYZ-Proprietary
+# Copyright (c) 2026 Anything XYZ
+
+name: Company Headers Check
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  check-headers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Check company headers
+        run: |
+          # Clone or copy company headers toolkit
+          # Option 1: From dotfiles (if publicly accessible)
+          # git clone https://github.com/yourusername/dotfiles.git /tmp/dotfiles
+
+          # Option 2: Include in repo (recommended for private repos)
+          # Create scripts/company-headers/ directory in your repo
+          # and copy toolkit files there
+
+          bash scripts/company-headers/apply-headers.sh --check
+
+      - name: Comment on PR (if applicable)
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.name,
+              body: '⚠️ Some files are missing company headers. Run `make headers` to fix.'
+            })
+        continue-on-error: true

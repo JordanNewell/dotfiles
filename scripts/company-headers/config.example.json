@@ -1,0 +1,24 @@
+{
+  "$schema": "./config.schema.json",
+  "description": "Company header configuration - rename to config.json for local overrides",
+  "defaults": {
+    "company": "Anything XYZ",
+    "author": "Anything XYZ Development Team",
+    "email": "dev.23.xyz@gmail.com",
+    "license": "LicenseRef-AnythingXYZ-Proprietary"
+  },
+  "projects": {
+    "molana": {
+      "product": "Curtis Trade AI Solana Edition",
+      "override": "Molana Trading Ecosystem"
+    },
+    "m0l-handz": {
+      "product": "Social Trading Platform",
+      "override": "M0L-Handz"
+    },
+    "claude-agent-layer": {
+      "product": "Agent Routing & Semantic Memory",
+      "override": "Claude Agent Layer"
+    }
+  }
+}
