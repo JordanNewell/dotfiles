@@ -41,6 +41,14 @@ function vault { Set-Location $VaultsDir }
 function docs { Set-Location $DocsDir }
 
 # ============================================================================
+# DEFAULT EDITOR (Zed)
+# ============================================================================
+
+$env:EDITOR = "zed -w"
+$env:VISUAL = "zed -w"
+$env:SOPS_AGE_KEY_FILE = "$env:APPDATA\sops\age\keys.txt"
+
+# ============================================================================
 # EDITOR LAUNCHERS
 # ============================================================================
 
