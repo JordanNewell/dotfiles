@@ -53,5 +53,5 @@ echo "⬜  Run Windows Update"
 echo ""
 
 echo "=========================================="
-echo "Full checklist: E:/vaults/claude.code.xyz/security/quarterly-security-checklist.md"
+echo "Full checklist: $HOME/docs/security/quarterly-security-checklist.md"
 

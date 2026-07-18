@@ -1,14 +1,14 @@
-# jrnew's Dotfiles Installer
-# Run: pwsh -ExecutionPolicy Bypass -File E:/dev/projects/dotfiles/install.ps1
+# Jordan Newell's Dotfiles Installer
+# Run: pwsh -ExecutionPolicy Bypass -File $HOME/dotfiles/install.ps1
 
 $ErrorActionPreference = "Stop"
 
 # Get actual PowerShell profile path
 $profilePath = $PROFILE
 $profileDir = Split-Path $profilePath -Parent
-$dotfilesDir = "E:/dev/projects/dotfiles"
+$dotfilesDir = "$HOME/dotfiles"
 
-Write-Host "Installing jrnew's dotfiles..." -ForegroundColor Cyan
+Write-Host "Installing Jordan Newell's dotfiles..." -ForegroundColor Cyan
 Write-Host "Dotfiles: $dotfilesDir" -ForegroundColor Gray
 Write-Host ""
 

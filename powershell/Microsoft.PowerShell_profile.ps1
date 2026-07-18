@@ -1,6 +1,6 @@
 # ====================================
 # Portable Development Environment
-# jrnew's Dotfiles
+# Jordan Newell's Dotfiles
 # ====================================
 
 # Prevent PSReadLine history bloat (was 97K lines / 8.4 MB, causing 80s startup)
@@ -274,6 +274,6 @@ function mcp-config {
 # WELCOME MESSAGE
 # ============================================================================
 
-Write-Host "🚀 jrnew's dev environment loaded!" -ForegroundColor Green
+Write-Host "🚀 Jordan Newell's dev environment loaded!" -ForegroundColor Green
 Write-Host "   Projects: $ProjectsRoot" -ForegroundColor Cyan
 Write-Host "   Type 'projects' to go there" -ForegroundColor Gray

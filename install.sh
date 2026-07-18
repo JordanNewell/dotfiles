@@ -1,5 +1,5 @@
 #!/bin/bash
-# jrnew's Dotfiles Installer for Git Bash
+# Jordan Newell's Dotfiles Installer for Git Bash
 # Run: bash ~/dotfiles/install.sh
 
 set -e
@@ -7,7 +7,7 @@ set -e
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "=========================================="
-echo "jrnew's Dotfiles Installer (Git Bash)"
+echo "Jordan Newell's Dotfiles Installer (Git Bash)"
 echo "=========================================="
 echo ""
 echo "Dotfiles directory: $DOTFILES_DIR"

@@ -1,10 +1,10 @@
-# jrnew's Dotfiles Setup Script
+# Jordan Newell's Dotfiles Setup Script
 # Run this script to symlink your dotfiles to the correct locations
 
 $DotfilesDir = $PSScriptRoot
 $ErrorActionPreference = "Stop"
 
-Write-Host "🚀 Setting up jrnew's dotfiles..." -ForegroundColor Cyan
+Write-Host "🚀 Setting up Jordan Newell's dotfiles..." -ForegroundColor Cyan
 Write-Host "Dotfiles location: $DotfilesDir" -ForegroundColor Gray
 
 # Function to create symbolic link

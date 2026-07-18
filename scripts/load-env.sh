@@ -1,5 +1,5 @@
 #!/bin/bash
-# Portable environment loader for jrnew's dotfiles
+# Portable environment loader for Jordan Newell's dotfiles
 # Loads .env file with fallback to sensible defaults
 
 # Find dotfiles directory (works even if this script is symlinked)
