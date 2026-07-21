@@ -4,14 +4,14 @@
 
 [user]
 	# Your GitHub username
-	name = dev23xyz-oss
+	name = JordanNewell
 
-	# Your GitHub email
-	email = dev.23.xyz@gmail.com
+	# Your GitHub email (ID-locked noreply hides real address)
+	email = 58616955+JordanNewell@users.noreply.github.com
 
 # GitHub specific settings
 [github]
-	user = dev23xyz-oss
+	user = JordanNewell
 
 # GPG signing (optional - uncomment if you use GPG)
 # [commit]
