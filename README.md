@@ -1,4 +1,10 @@
-# Jordan Newell's Dotfiles
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JordanNewell/dotfiles/main/assets/hero.png" alt="Jordan Newell's dotfiles — Personal development environment, version controlled. install.sh on Linux, install.ps1 on Windows." width="100%">
+  <br>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-orange" alt="platform">
+  <img src="https://img.shields.io/badge/shell-PowerShell%20%7C%20Bash-yellow" alt="shell">
+</p>
 
 > Personal development environment, version controlled.
 
