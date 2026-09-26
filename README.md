@@ -162,3 +162,11 @@ Dotfiles are the standard answer. Clone the repo, run the installer, done. The g
 ---
 
 MIT licensed. Fork, adapt, make your own.
+
+## Contributing
+
+Issues and PRs welcome. Fork, branch, open a PR against `main`.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
