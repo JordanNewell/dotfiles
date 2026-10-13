@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/JordanNewell/dotfiles/main/assets/hero.png" alt="Jordan Newell's dotfiles — Personal development environment, version controlled. install.sh on Linux, install.ps1 on Windows." width="100%">
   <br>
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-BUSL--1.1-blue.svg" alt="License: BUSL-1.1"></a>
   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-orange" alt="platform">
   <img src="https://img.shields.io/badge/shell-PowerShell%20%7C%20Bash-yellow" alt="shell">
 </p>
@@ -161,4 +161,4 @@ Dotfiles are the standard answer. Clone the repo, run the installer, done. The g
 
 ---
 
-MIT licensed. Fork, adapt, make your own.
+BUSL-1.1 licensed (source-available; MIT on 2030-10-12). Fork, adapt, make your own.
