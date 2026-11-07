@@ -25,7 +25,9 @@ jobs:
         uses: lewagon/wait-on-check-action@v1.3.4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          check-name: 'test'
+          # This repo has no `test` checks; only plan-doc-guard (`guard`)
+          # runs on PRs.
+          check-regexp: '^(guard|test)'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
 
